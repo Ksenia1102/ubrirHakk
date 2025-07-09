@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            padding: 0;
+            background-color: #e5ddd5;
+            background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+           cursor: pointer;
+        }
+        
+        .chat-container {
+            width: 400px;
+            height: 600px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background-color: #075e54;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+        
+        .contact-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .contact-status {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #e5ddd5;
+            background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+        }
+        
+        .message {
+            max-width: 70%;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            position: relative;
+            word-wrap: break-word;
+        }
+        
+        .incoming {
+            background-color: white;
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+        
+        .outgoing {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            border-top-right-radius: 0;
+            margin-left: auto;
+        }
+        
+        .message-time {
+            font-size: 11px;
+            color: #666;
+            text-align: right;
+            margin-top: 4px;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+        }
+        
+        .send-button {
+            background-color: #075e54;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .warning-note {
+            background-color: #ebffee;
+            border-left: 4px solid #36f492;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 13px;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .scam-indicators {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .scam-indicators h3 {
+            margin-top: 0;
+            color: #d32f2f;
+        }
+        
+        .scam-indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .scam-indicator::before {
+            content: "🔴";
+            margin-right: 8px;
+        }
+        
+        .thinking-bubble {
+            background-color: #f5f5f5;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+            color: #666;
+            border: 1px dashed #ccc;
+        }
+         .clickable-element {
+            
+            cursor: pointer;
+            transition: all 0.3s ease; /* Плавное изменение стилей */
+        }
+        
+        .clicked {
+            border: 2px solid red !important;
+            background-color: #ffecec !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="contact-avatar">
+                <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Аватар">
+            </div>
+            <div class="contact-info">
+                <div class="contact-name">Алексей К.</div>
+                <div class="contact-status">был в сети сегодня в 14:20</div>
+            </div>
+        </div>
+        
+        <div class="chat-messages">
+            <!-- Исторические сообщения -->
+            <div class="message incoming">
+                Привет, Сергей! Давно не виделись.
+                <div class="message-time">14:21</div>
+            </div>
+            
+            <div class="message outgoing">
+                Привет, Алексей! Да, правда, давно. Как дела?
+                <div class="message-time">14:22</div>
+            </div>
+            
+            <div class="message incoming">
+                Да вроде норм. Работаю там же, живу пока у родителей.
+                <div class="message-time">14:23</div>
+            </div>
+            
+            <div id="scam1" class="message incoming clickable-element">
+                Слушай, не мог бы ты помочь деньгами? Очень нужны 5000 до зарплаты.
+                <div class="message-time">14:24</div>
+            </div>
+            
+            <div class="message incoming">
+                Через неделю точно верну.
+                <div class="message-time">14:24</div>
+            </div>
+            
+            <div class="message outgoing">
+                А что случилось?
+                <div class="message-time">14:25</div>
+            </div>
+            
+            <div id="scam2" class="message incoming clickable-element">
+                Да так, накопилось... Лекарства купить надо.
+                <div class="message-time">14:26</div>
+            </div>
+            
+            <div id="scam3" class="message incoming clickable-element">
+                Вот реквизиты: Сбер 4276 3800 1234 5678
+                <div class="message-time">14:26</div>
+            </div>
+            
+            <div id="bbb" class="thinking-bubble">
+                "Почему бы не помочь хорошему человеку?" — думал Сергей, пока открывал приложение банка. Но не поторопился ли он?
+            </div>
+            <div id="win" style="display: none;">
+                <div class="warning-note">
+                    <strong>Верно!</strong> Это указывает на мошенничество.
+                </div>
+                
+                <div class="scam-indicators">
+                    <h3>Тревожные признаки:</h3>
+                    <div class="scam-indicator">После долгого молчания внезапная просьба о деньгах</div>
+                    <div class="scam-indicator">Расплывчатые объяснения причины займа</div>
+                    <div class="scam-indicator">Нет конкретных сроков возврата</div>
+                    <div class="scam-indicator">Отсутствие предложений встретиться лично</div>
+                    <div class="scam-indicator">Реквизиты на физическое лицо, а не на компанию</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" placeholder="Введите сообщение">
+            <button class="send-button">→</button>
+        </div>
+    </div>
+</body>
+<script>
+  // Элементы, которые нужно отслеживать
+  const elementsToClick = ['scam1', 'scam2', 'scam3'];
+  const clickedElements = new Set(); // Храним ID кликнутых элементов
+
+  function checkAllClicked() {
+    if (clickedElements.size === elementsToClick.length) {
+      const winBlock = document.getElementById('win');
+      winBlock.style.display = 'block';
+      
+      // Плавная прокрутка к блоку #win
+      document.getElementById('bbb').scrollIntoView({
+        behavior: 'smooth', // Плавная анимация
+        block: 'start'      // Прокрутка к верхней границе элемента
+      });
+    }
+  }
+
+  elementsToClick.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.addEventListener('click', () => {
+        clickedElements.add(id);
+        element.classList.add('clicked'); // Добавляем класс с красным стилем
+        checkAllClicked();
+      });
+    }
+  });
+</script>
+</html>

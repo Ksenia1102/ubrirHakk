@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ТехноДом - Официальный магазин бытовой техники</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #ff6600;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --danger-red: #d32f2f;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+        }
+        
+        .contacts {
+            font-size: 14px;
+        }
+        
+        .banner {
+            background-color: var(--secondary);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            margin: 15px 0;
+        }
+        
+        .product-page {
+            padding: 50px;
+            max-width: 1200px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .product-gallery {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .product-gallery img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        
+        .product-info {
+            padding: 20px;
+        }
+        
+        .product-title {
+            font-size: 28px;
+            margin-top: 0;
+            color: var(--primary);
+        }
+        
+        .product-price {
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--secondary);
+            margin: 20px 0;
+        }
+        
+        .product-old-price {
+            text-decoration: line-through;
+            color: #999;
+            font-size: 18px;
+            margin-left: 10px;
+        }
+        
+        .product-discount {
+            background-color: var(--secondary);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 3px;
+            font-size: 14px;
+            margin-left: 10px;
+        }
+        
+        .product-features {
+            margin: 20px 0;
+        }
+        
+        .product-feature {
+            margin-bottom: 10px;
+            display: flex;
+        }
+        
+        .product-feature::before {
+            content: "✓";
+            color: var(--primary);
+            margin-right: 8px;
+            font-weight: bold;
+        }
+        
+        .delivery-info {
+            background-color: #e8f5e9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 20px 0;
+        }
+        
+        .buy-button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .buy-button:hover {
+            background-color: #e55c00;
+        }
+        
+        .payment-methods {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .reviews {
+            margin-top: 50px;
+            grid-column: 1 / -1;
+        }
+        
+        .review {
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 15px;
+        }
+        
+        .review-author {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        
+        .review-date {
+            color: #999;
+            font-size: 12px;
+        }
+        
+        .warning-note {
+            background-color: #ffebee;
+            border-left: 4px solid var(--danger-red);
+            padding: 20px;
+            margin: 30px 0;
+            grid-column: 1 / -1;
+        }
+        
+        .scam-indicators {
+            margin-top: 20px;
+        }
+        
+        .scam-indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .scam-indicator::before {
+            content: "⚠️";
+            margin-right: 10px;
+            font-size: 20px;
+        }
+        
+        .footer {
+            background-color: var(--dark-gray);
+            color: white;
+            padding: 30px 0;
+            margin-top: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo">ТехноДом<span>.рф</span></div>
+            <div class="contacts">8-800-123-45-67 | info@tehnodom.ru</div>
+        </div>
+    </div>
+    
+    <div class="banner">
+        АКЦИЯ! Бесплатная доставка по всей России! Скидки до 50%!
+    </div>
+    
+    <div class="product-page">
+        <div class="product-gallery">
+                <img src="img/холодильник.jpg" alt="Холодильник">
+        </div>
+        
+        <div class="product-info">
+            <h1 class="product-title">Холодильник Samsung RB37A52N0SA/WT</h1>
+            
+            <div class="product-price">
+                19 990 ₽ <span class="product-old-price">79 990 ₽</span> <span class="product-discount">-75%</span>
+            </div>
+            
+            <div class="product-features">
+                <div class="product-feature">Общий объем: 367 л</div>
+                <div class="product-feature">No Frost</div>
+                <div class="product-feature">Класс энергопотребления: A+</div>
+                <div class="product-feature">Гарантия: 3 года</div>
+                <div class="product-feature">Страна производства: Россия</div>
+            </div>
+            
+            <div class="delivery-info">
+                <strong>Бесплатная доставка</strong> по всей России! Отправка сегодня при заказе до 18:00.
+            </div>
+            
+            <button class="buy-button">КУПИТЬ СЕЙЧАС</button>
+            
+            <div class="payment-methods">
+                Принимаем карты Visa, Mastercard, Мир. Безопасные платежи через Сбербанк.
+            </div>
+        </div>
+        
+        <div class="reviews">
+            <h2>Отзывы о товаре</h2>
+            
+            <div class="review">
+                <div class="review-author">Анна К.</div>
+                <div class="review-date">15.05.2023</div>
+                <p>Отличный холодильник, работает тихо, вместительный. Доставили быстро.</p>
+            </div>
+            
+            <div class="review">
+                <div class="review-author">Иван П.</div>
+                <div class="review-date">22.04.2023</div>
+                <p>Заказал, привезли через 3 дня. Все как на фото, спасибо магазину!</p>
+            </div>
+        </div>
+        
+        <div class="warning-note">
+            <h3>Это учебный пример мошеннического сайта!</h3>
+            <div class="scam-indicators">
+                <div class="scam-indicator">Цены значительно ниже рыночных (подозрительно низкие)</div>
+                <div class="scam-indicator">Нет информации о юридическом лице (ИНН, ОГРН)</div>
+                <div class="scam-indicator">Отсутствует 3D-Secure при оплате</div>
+                <div class="scam-indicator">Нет реальных контактов (только форма обратной связи)</div>
+                <div class="scam-indicator">Отзывы выглядят шаблонными и не содержат деталей</div>
+            </div>
+            <p style="margin-top: 20px;">
+                <strong>Как защититься:</strong> Покупайте только в проверенных магазинах с системой безопасных платежей. 
+                Проверяйте реквизиты компании на сайте ФНС. Используйте отдельную карту для онлайн-покупок.
+            </p>
+        </div>
+    </div>
+    
+    <div class="footer">
+        © 2023 ТехноДом.рф - Все права защищены.
+    </div>
+    
+    <script>
+        document.querySelector('.buy-button').addEventListener('click', function() {
+            alert('Это учебный пример! Настоящий магазин должен иметь:\n\n1. Реквизиты компании\n2. 3D-Secure при оплате\n3. Реальные отзывы\n4. Контактные данные\n\nНе вводите платежные данные на подозрительных сайтах!');
+        });
+    </script>
+</body>
+</html>

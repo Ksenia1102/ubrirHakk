@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WhatsApp Web</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            padding: 0;
+            background-color: #e5ddd5;
+            background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .chat-container {
+            width: 400px;
+            height: 600px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background-color: #075e54;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #ddd;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+        
+        .contact-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-name {
+            font-weight: bold;
+            font-size: 16px;
+        }
+        
+        .contact-status {
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            padding: 15px;
+            overflow-y: auto;
+            background-color: #e5ddd5;
+            background-image: url('https://web.whatsapp.com/img/bg-chat-tile-light_a4be512e7195b6b733d9110b408f075d.png');
+        }
+        
+        .message {
+            max-width: 70%;
+            margin-bottom: 10px;
+            padding: 8px 12px;
+            border-radius: 8px;
+            position: relative;
+            word-wrap: break-word;
+        }
+        
+        .incoming {
+            background-color: white;
+            align-self: flex-start;
+            border-top-left-radius: 0;
+        }
+        
+        .outgoing {
+            background-color: #dcf8c6;
+            align-self: flex-end;
+            border-top-right-radius: 0;
+            margin-left: auto;
+        }
+        
+        .message-time {
+            font-size: 11px;
+            color: #666;
+            text-align: right;
+            margin-top: 4px;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-top: 1px solid #ddd;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            outline: none;
+            font-size: 14px;
+        }
+        
+        .send-button {
+            background-color: #075e54;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+        
+        .warning-note {
+            background-color: #ebffed;
+            border-left: 4px solid #36f446;
+            padding: 10px;
+            margin: 15px 0;
+            font-size: 13px;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .scam-indicators {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        
+        .scam-indicators h3 {
+            margin-top: 0;
+            color: #d32f2f;
+        }
+        
+        .scam-indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 8px;
+        }
+        
+        .scam-indicator::before {
+            content: "🔴";
+            margin-right: 8px;
+        }
+        
+        .thinking-bubble {
+            background-color: #f5f5f5;
+            border-radius: 15px;
+            padding: 10px 15px;
+            margin: 10px 0;
+            font-style: italic;
+            color: #666;
+            border: 1px dashed #ccc;
+        }
+        
+        .bank-link {
+            color: #075e54;
+            text-decoration: underline;
+            word-break: break-all;
+        }
+        
+        .urgent {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+         .clickable-element {
+            
+            cursor: pointer;
+            transition: all 0.3s ease; /* Плавное изменение стилей */
+        }
+        
+        .clicked {
+            border: 2px solid red !important;
+            background-color: #ffecec !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="contact-avatar">
+                <img src="https://cdn-icons-png.flaticon.com/512/3698/3698156.png" alt="Аватар">
+            </div>
+            <div class="contact-info">
+                <div class="contact-name">Служба поддержки</div>
+                <div class="contact-status">был в сети только что</div>
+            </div>
+        </div>
+        
+        <div class="chat-messages">
+            <div class="message incoming">
+                Здравствуйте! Это служба безопасности вашего банка. Мы обнаружили подозрительную активность на вашем счете.
+                <div class="message-time">14:21</div>
+            </div>
+            
+            <div class="message outgoing">
+                Здравствуйте. Какая активность?
+                <div class="message-time">14:22</div>
+            </div>
+            
+            <div id="scam1" class="message incoming clickable-element">
+                Зафиксирована попытка несанкционированного перевода 25 000 рублей. Для защиты средств необходимо срочно принять меры!
+                <div class="message-time">14:23</div>
+            </div>
+            
+            <div class="message outgoing">
+                Что мне делать?
+                <div class="message-time">14:24</div>
+            </div>
+            
+            <div id="scam2" class="message incoming clickable-element">
+                Мы уже создали для вас временный безопасный счет. Переведите все средства по этой ссылке: <span class="bank-link">https://secure-bank-transfer.ru/your-account</span>
+                <div class="message-time">14:25</div>
+            </div>
+            
+            <div id="scam3" class="message incoming urgent clickable-element">
+                Внимание! У вас есть 1 час до блокировки карты. Пожалуйста, действуйте быстро!
+                <div class="message-time">14:26</div>
+            </div>
+            
+            <div id="bbb" class="thinking-bubble">
+                "Надо срочно перевести деньги, иначе потеряю все!" — подумал клиент, открывая ссылку. Но стоит ли торопиться?
+            </div>
+            <div id="win" style="display: none;">
+                <div class="warning-note">
+                    <strong>Все верно!</strong> Это может быть мошенничеством. Настоящий банк никогда не попросит вас перевести деньги по ссылке в мессенджере.
+                </div>
+                
+                <div class="scam-indicators">
+                    <h3>Тревожные признаки мошенничества:</h3>
+                    <div class="scam-indicator">Сообщение от "службы поддержки" в мессенджере (банки так не делают)</div>
+                    <div class="scam-indicator">Создание искусственной срочности ("у вас 1 час")</div>
+                    <div class="scam-indicator">Просьба перевести деньги на "безопасный счет"</div>
+                    <div class="scam-indicator">Ссылка на подозрительный сайт вместо официального банковского приложения</div>
+                    <div class="scam-indicator">Запугивание потерей средств</div>
+                </div>
+                
+                <div class="scam-indicators" style="background-color: #e8f5e9;">
+                    <h3 style="color: #2e7d32;">Что делать, если получили такое сообщение:</h3>
+                    <div class="scam-indicator" style="color: #2e7d32;">1. НЕ переходите по ссылкам и НЕ переводите деньги</div>
+                    <div class="scam-indicator" style="color: #2e7d32;">2. Позвоните в банк по официальному номеру с обратной стороны карты</div>
+                    <div class="scam-indicator" style="color: #2e7d32;">3. Проверьте уведомления в официальном приложении банка</div>
+                    <div class="scam-indicator" style="color: #2e7d32;">4. Заблокируйте карту, если есть сомнения</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" placeholder="Введите сообщение">
+            <button class="send-button">→</button>
+        </div>
+    </div>
+</body>
+<script>
+  // Элементы, которые нужно отслеживать
+  const elementsToClick = ['scam1', 'scam2', 'scam3'];
+  const clickedElements = new Set(); // Храним ID кликнутых элементов
+
+  function checkAllClicked() {
+    if (clickedElements.size === elementsToClick.length) {
+      const winBlock = document.getElementById('win');
+      winBlock.style.display = 'block';
+      
+      // Плавная прокрутка к блоку #win
+      document.getElementById('bbb').scrollIntoView({
+        behavior: 'smooth', // Плавная анимация
+        block: 'start'      // Прокрутка к верхней границе элемента
+      });
+    }
+  }
+
+  elementsToClick.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.addEventListener('click', () => {
+        clickedElements.add(id);
+        element.classList.add('clicked'); // Добавляем класс с красным стилем
+        checkAllClicked();
+      });
+    }
+  });
+</script>
+</html>

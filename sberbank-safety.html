@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>СберБанк Онлайн - Вход в личный кабинет</title>
+    <style>
+        :root {
+            --sber-primary: #20752b; /* Основной зелёный Сбера */
+            --sber-secondary: #1a6824; /* Тёмный зелёный */
+            --sber-dark: #145a1e; /* Ещё темнее */
+            --sber-light: #e8f5e9; /* Светло-зелёный фон */
+            --sber-danger: #e53935;
+            --sber-text: #333333;
+            --sber-gray: #f5f5f5;
+            --sber-border: #e0e0e0;
+        }
+        
+        body {
+            font-family: 'SBSansText', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--sber-gray);
+            color: var(--sber-text);
+            line-height: 1.5;
+        }
+        
+        .sber-container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 15px;
+        }
+        
+        .sber-header {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+        
+        .sber-logo {
+            height: 50px;
+            margin-bottom: 16px;
+        }
+        
+        .sber-card {
+            background: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-bottom: 16px;
+        }
+        
+        .sber-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 24px 0;
+            color: var(--sber-text);
+        }
+        
+        .sber-form-group {
+            margin-bottom: 16px;
+        }
+        
+        .sber-label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        .sber-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--sber-border);
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+        
+        .sber-input:focus {
+            border-color: var(--sber-primary);
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(32, 117, 43, 0.2);
+        }
+        
+        .sber-checkbox {
+            display: flex;
+            align-items: center;
+            margin: 16px 0;
+        }
+        
+        .sber-checkbox input {
+            margin-right: 8px;
+            width: 18px;
+            height: 18px;
+            accent-color: var(--sber-primary);
+        }
+        
+        .sber-btn {
+            width: 100%;
+            background-color: var(--sber-primary);
+            color: white;
+            border: none;
+            padding: 14px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin: 8px 0;
+            transition: background-color 0.3s;
+        }
+        
+        .sber-btn:hover {
+            background-color: var(--sber-secondary);
+        }
+        
+        .sber-btn-secondary {
+            background-color: white;
+            color: var(--sber-primary);
+            border: 1px solid var(--sber-primary);
+            transition: all 0.3s;
+        }
+        
+        .sber-btn-secondary:hover {
+            background-color: var(--sber-light);
+        }
+        
+        .sber-login-type {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        
+        .sber-login-btn {
+            flex: 1;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid var(--sber-border);
+            background: white;
+            color: var(--sber-text);
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+        
+        .sber-login-btn.active {
+            border-color: var(--sber-primary);
+            background-color: var(--sber-light);
+            color: var(--sber-primary);
+            font-weight: 600;
+        }
+        
+        .sber-login-btn:hover {
+            border-color: var(--sber-primary);
+        }
+        
+        .sber-link {
+            color: var(--sber-primary);
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .sber-link:hover {
+            text-decoration: underline;
+        }
+        
+        .sber-divider {
+            text-align: center;
+            margin: 24px 0;
+            position: relative;
+        }
+        
+        .sber-divider::before {
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--sber-border);
+            z-index: 1;
+        }
+        
+        .sber-divider span {
+            background: white;
+            padding: 0 16px;
+            position: relative;
+            z-index: 2;
+            color: #666;
+        }
+        
+        .sber-qr-options {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 16px;
+        }
+        
+        .sber-qr-option {
+            text-align: center;
+            font-size: 14px;
+        }
+        
+        .sber-footer {
+            text-align: center;
+            margin-top: 32px;
+            font-size: 13px;
+            color: #666;
+        }
+        
+        .sber-footer a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .sber-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .sber-alert {
+            background-color: var(--sber-light);
+            padding: 16px;
+            border-radius: 8px;
+            margin-bottom: 16px;
+            font-size: 14px;
+        }
+        
+        .sber-alert a {
+            color: var(--sber-primary);
+            text-decoration: none;
+        }
+        
+        /* Стиль для подозрительного сообщения */
+        .sber-warning {
+            background-color: #fff3e0;
+            border-left: 4px solid #ffa000;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 0 8px 8px 0;
+            font-size: 14px;
+        }
+        
+        .sber-warning-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sber-warning-title svg {
+            margin-right: 8px;
+            fill: currentColor;
+        }
+        
+        /* Двухколоночный макет */
+        .sber-two-columns {
+            display: flex;
+            gap: 24px;
+        }
+        
+        .sber-column {
+            flex: 1;
+        }
+        
+        @media (max-width: 768px) {
+            .sber-two-columns {
+                flex-direction: column;
+            }
+        }
+        
+        /* Иконки для кнопок */
+        .sber-icon {
+            width: 18px;
+            height: 18px;
+        }
+        
+        /* Стили для блока с признаками мошенничества */
+        .sber-scam-info {
+            background-color: white;
+            border-radius: 16px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            margin-top: 24px;
+        }
+        
+        .sber-scam-title {
+            font-size: 20px;
+            font-weight: 600;
+            margin: 0 0 16px 0;
+            color: var(--sber-danger);
+        }
+        
+        .sber-scam-item {
+            margin-bottom: 12px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .sber-scam-item::before {
+            content: "•";
+            color: var(--sber-danger);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        
+        .sber-scam-advice {
+            background-color: var(--sber-light);
+            padding: 16px;
+            border-radius: 8px;
+            margin-top: 16px;
+            font-size: 14px;
+        }
+        
+        .sber-scam-advice-title {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: var(--sber-primary);
+        }
+        .clickable-element {
+            
+            cursor: pointer;
+            transition: all 0.3s ease; /* Плавное изменение стилей */
+        }
+        
+        .clicked {
+            border: 2px solid red !important;
+            background-color: #ffecec !important;
+        }
+    </style>
+</head>
+<body>
+    <img id="scam4" style="width: -webkit-fill-available;" class="clickable-element" src="img/scam11.png" alt="">
+    <div class="sber-container">
+        
+        <div class="sber-header clickable-element" id="scam1">
+            <a href="#">
+                <img src="https://logo-teka.com/wp-content/uploads/2025/06/sber-logo-eng.svg" alt="СберБанк" class="sber-logo">
+            </a>
+        </div>
+        
+        <div class="sber-card">
+            <h1 class="sber-title">Вход в СберБанк Онлайн</h1>
+            
+            <div class="sber-login-type">
+                <button class="sber-login-btn active" id="phoneBtn">
+                    <svg class="sber-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#20752b">
+                        <path d="M20.01 15.38c-1.23 0-2.42-.2-3.53-.56-.35-.12-.74-.03-1.01.24l-1.57 1.97c-2.83-1.35-5.48-3.9-6.89-6.83l1.95-1.66c.27-.28.35-.67.24-1.02-.37-1.11-.56-2.3-.56-3.53 0-.54-.45-.99-.99-.99H4.19C3.65 3 3 3.24 3 3.99 3 13.28 10.73 21 20.01 21c.71 0 .99-.63.99-1.18v-3.45c0-.54-.45-.99-.99-.99z"/>
+                    </svg>
+                    Телефон
+                </button>
+                <button class="sber-login-btn" id="cardBtn">
+                    <svg class="sber-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#666">
+                        <path d="M20 4H4c-1.11 0-1.99.89-1.99 2L2 18c0 1.11.89 2 2 2h16c1.11 0 2-.89 2-2V6c0-1.11-.89-2-2-2zm0 14H4v-6h16v6zm0-10H4V6h16v2z"/>
+                    </svg>
+                    Номер карты
+                </button>
+            </div>
+            
+            <div class="sber-two-columns">
+                <div class="sber-column">
+                    <div class="sber-form-group">
+                        <input type="text" class="sber-input" placeholder="Введите логин" disabled style="cursor: pointer;">
+                    </div>
+                    
+                    <div class="sber-form-group">
+                        <input type="password" class="sber-input" placeholder="Введите пароль" disabled style="cursor: pointer;">
+                    </div>
+                    
+                    <div class="sber-checkbox">
+                        <input type="checkbox" id="remember">
+                        <label for="remember">Запомнить меня</label>
+                    </div>
+                </div>
+                
+                <div class="sber-column">
+                    <!-- Подозрительное дополнительное поле (фишинговый элемент) -->
+                    <div id="scam2" class="sber-form-group clickable-element">
+                        <label class="sber-label">Код подтверждения из SMS</label>
+                        <input type="text" class="sber-input" placeholder="Введите код из SMS" disabled style="cursor: pointer;">
+                        <div style="font-size: 12px; color: #666; margin-top: 4px;">
+                            Код отправлен на ваш телефон
+                        </div>
+                    </div>
+                    
+                    <div id="scam3" class="sber-form-group clickable-element">
+                        <label class="sber-label">CVV-код карты</label>
+                        <input type="text" class="sber-input" placeholder="3 цифры на обороте" maxlength="3" disabled style="cursor: pointer;">
+                        <div style="font-size: 12px; color: #666; margin-top: 4px;">
+                            Требуется для подтверждения
+                        </div>
+                        <button class="sber-btn">Подтвердить данные и разблокировать доступ</button>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 16px 0;">
+                <a href="#" class="sber-link">Забыли логин или пароль?</a>
+            </div>
+            
+            <div class="sber-divider">
+                <span>ИЛИ</span>
+            </div>
+            
+            <div style="display: flex; gap: 16px;">
+                <button class="sber-btn sber-btn-secondary" style="flex: 1;">Нет карты СберБанка</button>
+                <button class="sber-btn sber-btn-secondary" style="flex: 1;">Регистрация</button>
+            </div>
+            
+            <div class="sber-divider">
+                <span>Вход по QR-коду</span>
+            </div>
+            
+            <div id="bbb" style="text-align: center; margin-bottom: 16px;">
+                <a href="#" class="sber-link">Вход по коду</a>
+            </div>
+            
+        </div>
+        
+        <div  class="sber-scam-info" id="win" style="display: none;">
+            <h2 class="sber-scam-title">Признаки мошенничества на этой странице:</h2>
+            
+            <div class="sber-scam-item">Запрос CVV-кода карты при входе в личный кабинет (настоящий СберБанк никогда не запрашивает CVV при авторизации)</div>
+            
+            <div class="sber-scam-item">Запрос SMS-кода подтверждения на самой странице входа (обычно код подтверждения вводится в отдельном защищенном окне)</div>
+            
+            <div class="sber-scam-item">Кнопка с формулировкой "Подтвердить данные и разблокировать доступ" (настоящий банк не блокирует доступ таким образом)</div>
+            
+            <div class="sber-scam-item">Доменное имя сайта не соответствует официальному домену СберБанка (sberbank.ru или online.sberbank.ru)</div>
+            
+            <div class="sber-scam-item">Отсутствие расширенной проверки подлинности сайта (настоящий сайт СберБанка всегда использует HTTPS и имеет сертификат безопасности)</div>
+            
+            <div class="sber-scam-advice">
+                <div class="sber-scam-advice-title">Как защититься:</div>
+                <p>1. Всегда проверяйте адресную строку - официальный сайт СберБанка: https://online.sberbank.ru</p>
+                <p>2. Никогда не вводите CVV-код карты на сайтах, даже если они выглядят как банковские</p>
+                <p>3. Для входа используйте только официальное приложение СберБанк Онлайн</p>
+                <p>4. Если сомневаетесь, позвоните в банк по номеру с обратной стороны вашей карты</p>
+            </div>
+        </div>
+        
+        <div class="sber-alert">
+            <a href="#">Сообщить о мошеннике</a>
+        </div>
+        
+        <div class="sber-footer">
+            <a href="#">Больше о безопасности</a>
+        </div>
+    </div>
+
+    <script>
+  // Элементы, которые нужно отслеживать
+  const elementsToClick = ['scam1', 'scam2', 'scam3','scam4'];
+  const clickedElements = new Set(); // Храним ID кликнутых элементов
+
+  function checkAllClicked() {
+    if (clickedElements.size === elementsToClick.length) {
+      const winBlock = document.getElementById('win');
+      winBlock.style.display = 'block';
+      
+      // Плавная прокрутка к блоку #win
+      document.getElementById('bbb').scrollIntoView({
+        behavior: 'smooth', // Плавная анимация
+        block: 'start'      // Прокрутка к верхней границе элемента
+      });
+    }
+  }
+
+  elementsToClick.forEach(id => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.addEventListener('click', () => {
+        clickedElements.add(id);
+        element.classList.add('clicked'); // Добавляем класс с красным стилем
+        checkAllClicked();
+      });
+    }
+  });
+</script>
+
+    <script>
+        // Переключение между кнопками телефона и карты
+        const phoneBtn = document.getElementById('phoneBtn');
+        const cardBtn = document.getElementById('cardBtn');
+        
+        phoneBtn.addEventListener('click', function() {
+            phoneBtn.classList.add('active');
+            phoneBtn.querySelector('svg').setAttribute('fill', '#20752b');
+            cardBtn.classList.remove('active');
+            cardBtn.querySelector('svg').setAttribute('fill', '#666');
+        });
+        
+        cardBtn.addEventListener('click', function() {
+            cardBtn.classList.add('active');
+            cardBtn.querySelector('svg').setAttribute('fill', '#20752b');
+            phoneBtn.classList.remove('active');
+            phoneBtn.querySelector('svg').setAttribute('fill', '#666');
+        });
+    </script>
+</body>
+</html>

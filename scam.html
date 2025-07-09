@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="ru" class="desktop landscape"><head>
+	<meta charset="UTF-8">
+	<base href="https://gidpofinansam.com/">
+	<title>Мошенничество в&nbsp;интернете</title>
+	<meta name="description" content="Мошенничество в&nbsp;интернете">
+	<meta name="keywords" content="Мошенничество в&nbsp;интернете">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta property="og:locale" content="ru_RU">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Мошенничество в&nbsp;интернете">
+	<meta property="og:description" content="Мошенничество в&nbsp;интернете">
+	<meta property="og:url" content="https://gidpofinansam.com/cources/unit-5/moshennichestvo-v-internete/">
+	<meta property="og:site_name" content="Уральский Банк реконструкции и развития | финансовая грамотность">
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:description" content="Мошенничество в&nbsp;интернете">
+	<meta name="twitter:title" content="Мошенничество в&nbsp;интернете">
+  <link rel="stylesheet" href="/assets/css/main.min-v2.7.css">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/site.webmanifest">
+	<meta name="msapplication-TileColor" content="#da532c">
+	<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="/assets/components/hybridauth/css/web/default.css" type="text/css">
+<style>
+		@font-face {
+			font-family: 'MyCustomFont'; /* Любое имя для шрифта */
+			src: url('fonts/gotam.ttf') format('truetype');
+			}
+		body {
+			font-family: 'MyCustomFont', sans-serif;
+			}
+        #fullscreen-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 9999;
+            text-align: center;
+        }
+        
+        #fullscreen-image {
+            /* width: 90%; */
+            width: 180vh;
+            padding: 5%;
+			cursor: pointer;
+
+        }
+        
+        #close-btn {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+		.click-message {
+            position: absolute;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 18px;
+            animation: fadeOut 2s ease-in-out 1s forwards;
+            z-index: 10000;
+        }
+        
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body>
+
+	<div class="sidebar">
+	<div>
+		<button class="sidebar__close"><span></span></button>
+		<div class="sidebar__logo"><img src="/assets/upload/logo-white.svg" alt="">
+							<div class="text">Финансовая грамотность</div>
+					</div>
+				<div class="sidebar__user">
+			<div class="user__icon">
+				<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 0C21.6421 0 25 3.35786 25 7.5C25 11.6421 21.6421 15 17.5 15C13.3579 15 10 11.6421 10 7.5C10 3.35786 13.3579 0 17.5 0ZM35 34.5C35 24.835 27.165 17 17.5 17C7.83502 17 0 24.835 0 34.5C0 34.6674 0.00235108 34.8343 0.00702202 35.0006H34.993C34.9976 34.8343 35 34.6674 35 34.5ZM1.02758 33.538C1.52574 24.873 8.71023 18 17.5 18L17.8209 18.0031C26.5721 18.17 33.6555 25.15 33.9878 33.8597L33.991 34H1.008L1.02758 33.538ZM11 7.5C11 3.91015 13.9101 1 17.5 1C21.0899 1 24 3.91015 24 7.5C24 11.0899 21.0899 14 17.5 14C13.9101 14 11 11.0899 11 7.5Z" fill="#fff"></path>
+				</svg>
+			</div>
+			<div class="user__name">Ксения </div>
+			<div class="user__edit" data-fancybox="" data-src="#edit">Редактировать</div>
+			<br>
+			<div class="user__edit" data-fancybox="" data-src="#edit_password">Изменить пароль</div>
+		</div>
+				<nav>
+			<ul class="sidebar__menu">
+				<li><a href="/">Главная</a></li>
+				
+				<li><a href="https://www.ubrr.ru" target="_blank">www.ubrr.ru</a></li>
+			</ul>
+		</nav>
+	</div>
+		<div>
+		<button class="sidebar__logout">Выйти</button>
+	</div>
+	</div>
+<header class="header is-active">
+	<div class="container">
+		<div class="row align-center">
+						<div class="col col-xs-6 col-sm-2">
+				<a class="back" href="#">
+					<svg width="35" height="19" viewBox="0 0 35 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M9.19267 0.307617L9.89978 1.01472L1.914 8.99962L35 9.00001V10L1.914 9.99962L9.89978 17.9853L9.19267 18.6924L0 9.49962L9.19267 0.307617Z" fill="#262626"></path>
+					</svg>Назад
+				</a>
+			</div>
+			<div class="col xs-hidden col-sm-8">
+				<div class="header-theme__name">Финансовая безопасность. Как&nbsp;не попасться мошенникам</div>
+			</div>
+						<div class="col col-xs-6 col-sm-2 justify-end align-center">
+				<button class="header__login" data-fancybox="" data-options="{ 'touch' : false }" data-src="#edit">
+					<svg width="35" height="35" viewBox="0 0 35 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path fill-rule="evenodd" clip-rule="evenodd" d="M17.5 0C21.6421 0 25 3.35786 25 7.5C25 11.6421 21.6421 15 17.5 15C13.3579 15 10 11.6421 10 7.5C10 3.35786 13.3579 0 17.5 0ZM35 34.5C35 24.835 27.165 17 17.5 17C7.83502 17 0 24.835 0 34.5C0 34.6674 0.00235108 34.8343 0.00702202 35.0006H34.993C34.9976 34.8343 35 34.6674 35 34.5ZM1.02758 33.538C1.52574 24.873 8.71023 18 17.5 18L17.8209 18.0031C26.5721 18.17 33.6555 25.15 33.9878 33.8597L33.991 34H1.008L1.02758 33.538ZM11 7.5C11 3.91015 13.9101 1 17.5 1C21.0899 1 24 3.91015 24 7.5C24 11.0899 21.0899 14 17.5 14C13.9101 14 11 11.0899 11 7.5Z" fill="#262626"></path>
+					</svg>
+				</button>
+				<button class="header__burger"><span></span></button>
+			</div>
+		</div>
+	</div>
+</header>
+	<main>
+		
+
+<section class="s-cources-detail">
+  <div class="container max-theme-900">
+    <div class="row">
+      <div class="col">
+        <h1 class="s-cources-detail__title">Мошенничество в&nbsp;интернете</h1>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col f-column">
+        <div class="s-cources-detail__wrapper">
+                    <div class="s-cources-detail__preview">            <picture><img class="s-cources-detail__image" src="/assets/cache_image/assets/upload/unit-5/5.2.-moshennichestvo-v-internete_1160x0_68f.webp" alt=""></picture>
+                      </div>                    <div class="container max-theme-780">
+            <div class="row">
+              <div class="col f-column">
+                <article>
+                  <p><strong>Сейчас мы почти всё делаем онлайн: оформляем карты, заказываем еду, записываемся к парикмахеру или врачу. Мы общаемся в мессенджерах и ведём соцсети — даже у бабушки Вали есть страничка с фотографиями её котов и цветов.</strong></p>
+
+<p>Из-за обилия возможностей обмануть кого-то в интернете сейчас куда проще, чем по телефону. Для этого даже не обязательно общаться с человеком лично — можно создать фейковое приложение, сайт или подделать ссылку для оплаты.</p>
+
+<p>Вот как мошенники используют технологии в своих нечестных целях.</p>
+
+<p>&nbsp;</p>
+
+<div class="mark red">
+<h2>Мошенничество в интернете</h2>
+</div>
+
+<p><strong>Схема 1</strong></p>
+
+<p>Олег увидел рекламный пост с предложением получить бесплатные пиццу и роллы от банка. Сайт по ссылке сомнений не вызвал: похожие цвета, да и элементы те же. Осталось подтвердить, что Олег действительно клиент банка, — указать Ф. И. О., номер телефона и карты. Но всё ли тут честно?</p>
+<!-- СБЕРБАНК -->
+ <p>Ознакомтесь с интерактивным примером, где вы можете нажать на те элементы, который вызвал бы у вас подозрение:</p>
+<iframe src="C:/Users/Xenia/Desktop/ubrir/sberbank-safety.html" width="100%"></iframe>
+<p>&nbsp;</p>
+
+<div class="mark gray">
+<p>Такой способ обмана называется фишингом: мошенники создают в интернете привлекательную ловушку и ловят в неё пользователей. Основная цель фишинга — узнать персональные данные: номер банковской карты и код из SMS. С их помощью мошенники получат доступ к интернет-банку и без труда переведут все деньги со счёта. Не делитесь личной информацией, а ещё всегда проверяйте адрес сайта: в нём не должно быть посторонних символов и букв.</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>Схема 2</strong></p>
+
+<p>Ирине на e-mail пришло письмо. Оказывается, ей положена выплата от государства — целых 130 000 рублей! Только данных для перевода у государства нет: нужен номер карты и цифры с обратной стороны. Ничего не напоминает?</p>
+<p>Ниже приведен интерактивный пример, где вы можете посмотреть как выглядит поддельный сайт и попробовать найти подозрительные элементы, нажав на них:</p>
+<iframe src="C:/Users/Xenia/Desktop/ubrir/выплаты.html" width="100%"></iframe>
+<p>&nbsp;</p>
+
+<div class="mark gray">
+<p>Да, это всё тот же фишинг. Часто аферисты рассылают письма от имени крупных компаний и просят пройти несложный опрос. В конце просят оставить номер карты или «забронировать» вознаграждение: отправить «идентификационный платёж», который позже вернётся с бонусом. Письма могут приходить от имени любых компаний: налоговой, пенсионного фонда, банка. Конечно, никакие деньги на счёт не поступят — игнорируйте такие сообщения, а лучше сразу жалуйтесь на них.</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>Схема 3</strong></p>
+
+<p>Сергею написал старый знакомый. Спросил, как дела, даже про себя немного рассказал — короткими общими фразами, но он всегда был неразговорчивым. После попросил Сергея одолжить 5 000 рублей — до зарплаты. «Почему бы не помочь хорошему человеку?» — думал Сергей, пока открывал приложение банка. Но не поторопился ли он?</p>
+<p>А теперь посмотрите переписку Сергея, попробуйте найти те сообщения, которые могут насторожить, и нажмите на них:</p>
+<iframe src="C:/Users/Xenia/Desktop/ubrir/переписка.html" style="max-height: none;
+    height: 85vh; width: 100%;"></iframe>
+	<p>&nbsp;</p>
+<div class="mark gray">
+<p>Не исключено, что аккаунт знакомого могли взломать. В таком случае стоит предложить ему передать сумму лично — так вы убедитесь, что деньги нужны другу, а не мошеннику.</p>
+
+<p>Чтобы обезопасить от взлома себя, настройте двухфакторную аутентификацию. Обычно её можно подключить в «Настройках безопасности». Тогда вход в аккаунт с каждого нового устройства придётся подтверждать кодом из сообщения — его отправят на телефон, доступ к которому есть только у вас.</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>Схема 4</strong></p>
+
+<p>Илья собрался купить холодильник — побольше и подешевле. Нашёл подходящий на сайте маленького магазинчика в 500 км от своего города — зато с бесплатной доставкой. Илья оплатил покупку онлайн, после чего продавец перестал выходить на связь, а сайт перестал открываться. Позже Илье стали названивать мошенники — оказалось, что его данные «утекли» в сеть.</p>
+<iframe src="C:/Users/Xenia/Desktop/ubrir/магазин.html" style=" width:100%; max-height: none; height: 85vh;"></iframe> 
+<p>&nbsp;</p>
+<iframe src="C:/Users/Xenia/Desktop/ubrir/платёжВМагазе.html" style=" width:100%; max-height: none; height: 85vh;" width="100%"></iframe> 
+<p>&nbsp;</p>
+
+<div class="mark gray">
+<p>Чтобы не потерять деньги, делать покупки стоит в интернет-магазинах с подключённой 3D-secure — на сайте обычно сообщают об этом. По этой технологии сначала покупатель указывает данные карты для оплаты, потом — код из SMS. При этом информация хранится на специальном сервере и не передаётся продавцу, а значит, остаётся в тайне.</p>
+
+<p>Не лишним будет и почитать отзывы о магазине — особенно если покупаете там впервые.<br>
+Ещё один полезный совет: заведите отдельную карту для онлайн-шопинга. Держите на ней ровно ту сумму, которую собираетесь потратить в ближайшее время.</p>
+</div>
+
+<p>&nbsp;</p>
+
+<p><strong>Схема 5</strong></p>
+
+<p>Алиса листала ленту новостей, как вдруг ей написал пользователь с именем «Служба поддержки». Представился менеджером банка и рассказал, что из-за подозрительной активности её карту вынуждены заблокировать. Чтобы не потерять деньги, их нужно перевести на «безопасный счёт», который специально для Алисы создали в банке.</p>
+<iframe src="C:/Users/Xenia/Desktop/ubrir/блокАкка.html" style="max-height: none;
+    height: 85vh; width: 100%;"></iframe>
+<div class="mark gray">
+<p>Никакого «безопасного счёта», конечно же, нет. Его выдумали мошенники, которые играют на эмоциях. Если вы столкнулись с такой ситуацией, правильным решением будет не поддаваться панике и позвонить в банк по номеру с официального сайта или с оборота банковской карты.</p>
+</div>
+
+<p>Перечислить все схемы интернет-мошенничества у нас вряд ли получится, но это и не нужно. Все они имеют общие признаки, по которым можно определить, что что-то тут нечисто.</p>
+
+<p>&nbsp;</p>
+
+<div class="mark red">
+<h2>Как определить интернет-мошенника</h2>
+</div>
+
+<ul>
+	<li><strong>Вам делают «выгодное» предложение. </strong>Так сказать, забрасывают приманку: обещают бесплатный подарок, денежную выплату или большую скидку.</li>
+	<li><strong>Вас просят сообщить данные:</strong> номер карты, срок её действия, код из SMS. Помните, что эту информацию не должен знать никто, кроме вас.</li>
+	<li><strong>Вас выводят на эмоции</strong>: радуют внезапным выигрышем или, наоборот, пугают, что вот-вот заблокируют карту и поэтому деньги срочно нужно перевести на «безопасный счёт».</li>
+	<li><strong>Вас ограничивают во времени.</strong> Говорят, что скидка действует только при оплате в течение часа, или убеждают, что деньги с карты пропадут, если не перевести их на другой счёт прямо сейчас.</li>
+</ul>
+
+<p>&nbsp;</p>
+
+<div class="mark red">
+<h2>Резюмируем</h2>
+</div>
+
+<p>Чтобы сберечь свои деньги, возьмите за правило <strong>никогда не принимать поспешных решений, особенно если они касаются финансов.</strong> Всегда берите паузу и разбирайтесь в том, что происходит: перепроверьте информацию в первоисточнике, позвоните в банк или посоветуйтесь с близкими — возможно, кто-то из них уже попадал в похожую ситуацию.</p>
+                </article>
+              </div>
+              <div class="col f-column">
+                                                <div class="s-cources-detail__check">
+                  <form id="form_theme_check" action="#" method="POST">
+                    <div class="field_group">
+                      <input type="radio" name="field_name" value="theme_30" id="check_theme" class="done">
+                      <label for="check_theme">Я изучил эту тему</label>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container max-theme-780">
+    <div class="row">
+      <div class="col p-60"><a class="s-cources__all-link" href="/cources/unit-5/">
+          <svg width="35" height="19" viewBox="0 0 35 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.19267 0.307617L9.89978 1.01472L1.914 8.99962L35 9.00001V10L1.914 9.99962L9.89978 17.9853L9.19267 18.6924L0 9.49962L9.19267 0.307617Z" fill="white"></path>
+          </svg>Все темы</a></div>
+    </div>
+  </div>
+</section>
+<footer class="footer__inner">
+  <div class="container">
+    <div class="row align-center space-between">
+      <div class="col col-xs-4">
+      <a class="prev" href="/cources/unit-5/moshennicheskie-sxemyi-zvonki-i-soobshheniya/">
+        <svg width="35" height="19" viewBox="0 0 35 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.19267 0.307617L9.89978 1.01472L1.914 8.99962L35 9.00001V10L1.914 9.99962L9.89978 17.9853L9.19267 18.6924L0 9.49962L9.19267 0.307617Z" fill="#262626"></path>
+        </svg><span>Предыдущая тема</span></a>    </div>
+      <div class="col col-xs-4">
+        <div class="total">2 / 4</div>
+      </div>
+      <div class="col col-xs-4">
+        <a class="next" href="/cources/unit-5/kak-obezopasit-sebya-ot-moshennikov/"><span>Следующая тема</span>
+          <svg width="35" height="19" viewBox="0 0 35 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M25.8073 0.307617L25.1002 1.01472L33.086 8.99962L0 9.00001V10L33.086 9.99962L25.1002 17.9853L25.8073 18.6924L35 9.49962L25.8073 0.307617Z" fill="#262626"></path>
+          </svg>
+        </a>      </div>
+    </div>
+  </div>
+</footer>
+
+
+	</main>
+
+	<div class="modal" id="loginmodal">
+	<div class="modal__title">Вход</div>
+	<div class="modal__close" data-fancybox-close="">
+		<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M26.2278 1.47919L14.207 13.5L26.2278 25.5208L25.5207 26.2279L13.4999 14.2071L1.47908 26.2279L0.771973 25.5208L12.7928 13.5L0.771973 1.47919L1.47908 0.772079L13.4999 12.7929L25.5207 0.772079L26.2278 1.47919Z" fill="#262626"></path>
+		</svg>
+	</div>
+	<form id="form_login" class="login" action="#" method="POST">
+		<div class="field_group">
+			<input type="text" name="email" placeholder="" id="login" required="">
+			<label for="login">Электронная почта*</label>
+		</div>
+		<div class="field_group">
+			<input type="password" name="password" placeholder="" id="password" required="">
+			<label for="password">Пароль*</label>
+		</div>
+		<div class="field_group">
+			<div class="reset_password open__fancybox" data-id="#reset" onclick="(function(){ return true })();">Я не помню пароль</div>
+		</div>
+		<div class="field_group">
+			<button class="btn" type="submit">Войти в профиль</button>
+		</div>
+		<div class="registration">
+			<div class="registration__title">У вас ещё нет аккаунта?</div>
+			<div class="registration__link open__fancybox" data-id="#registration" onclick="(function(){ return true })();">Зарегистрироваться
+				<svg width="35" height="19" viewBox="0 0 35 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd" d="M25.8073 0.307617L25.1002 1.01472L33.086 8.99962L0 9.00001V10L33.086 9.99962L25.1002 17.9853L25.8073 18.6924L35 9.49962L25.8073 0.307617Z">
+					</path>
+				</svg>
+			</div>
+		</div>
+	</form>
+	Вы можете авторизоваться на сайте через:
+	<div class="auth_soc">
+		<div class="hybridauth">
+    <img src="https://gravatar.com/avatar/322c51a81137dcabb2d0ea83cb3e8087?s=75" alt="shiro.keyyu13@bk.ru" title="Ксения " class="ha-avatar">
+
+    <span class="ha-info">
+        Вы авторизованы как  <b>shiro.keyyu13@bk.ru</b> (Ксения )! <a href="https://gidpofinansam.com/cources/unit-5/moshennichestvo-v-internete/?hauth_action=logout">Выйти →</a>
+        <br><br>
+        <small>Доступные провайдеры </small><br>
+        <a href="https://gidpofinansam.com/cources/unit-5/moshennichestvo-v-internete/?hauth_action=login&amp;provider=Vkontakte" class="vkontakte" rel="nofollow" title="Vkontakte">
+	<img src="/assets/upload/Vkontakte.svg" alt="Vkontakte">
+</a><a href="https://gidpofinansam.com/cources/unit-5/moshennichestvo-v-internete/?hauth_action=login&amp;provider=Odnoklassniki" class="odnoklassniki" rel="nofollow" title="Odnoklassniki">
+	<img src="/assets/upload/Odnoklassniki.svg" alt="Odnoklassniki">
+</a><a href="https://gidpofinansam.com/cources/unit-5/moshennichestvo-v-internete/?hauth_action=login&amp;provider=Yandex" class="yandex" rel="nofollow" title="Yandex">
+	<img src="/assets/upload/Yandex.svg" alt="Yandex">
+</a>
+    </span>
+
+</div>
+
+	</div>
+</div>
+
+	<div class="modal" id="edit">
+	<div class="modal__title">Редактировать профиль</div>
+	<div class="modal__close" data-fancybox-close="">
+		<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M26.2278 1.47919L14.207 13.5L26.2278 25.5208L25.5207 26.2279L13.4999 14.2071L1.47908 26.2279L0.771973 25.5208L12.7928 13.5L0.771973 1.47919L1.47908 0.772079L13.4999 12.7929L25.5207 0.772079L26.2278 1.47919Z" fill="#262626"></path>
+		</svg>
+	</div>
+	
+	<form id="form_updateprofile" class="form" action="cources/unit-5/moshennichestvo-v-internete/" method="post">
+		<input type="hidden" name="nospam" value="">
+		<input type="hidden" name="updateprofile" value="1">
+		<div class="field_group">
+			<input type="text" name="fullname" class="is-active" id="fullname" value="Ксения " minlength="3" required="">
+			<label for="fullname">Полное имя</label>
+			<div class="invalid-feedback error"></div>
+		</div>
+		<input type="submit" class="btn btn-primary" value="Сохранить изменения" name="login-updprof-btn" id="login-updprof-btn">
+		
+	</form>
+</div>
+
+<div class="modal" id="edit_password">
+	<div class="modal__title">Изменить пароль</div>
+	<div class="modal__close" data-fancybox-close="">
+		<svg width="27" height="27" viewBox="0 0 27 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M26.2278 1.47919L14.207 13.5L26.2278 25.5208L25.5207 26.2279L13.4999 14.2071L1.47908 26.2279L0.771973 25.5208L12.7928 13.5L0.771973 1.47919L1.47908 0.772079L13.4999 12.7929L25.5207 0.772079L26.2278 1.47919Z" fill="#262626"></path>
+		</svg>
+	</div>
+	
+	<form id="form_edit_password" class="form" action="cources/unit-5/moshennichestvo-v-internete/" method="post">
+		<input type="hidden" name="nospam" value="">
+		<input type="hidden" name="edit_password" value="1">
+		<div class="field_group">
+			<input type="password" class="form-control" name="password_old" id="password_old" value="" required="">
+			<label for="password_old">Старый пароль</label>
+			<div class="invalid-feedback error"></div>
+		</div>
+		<div class="field_group">
+			<input type="password" class="form-control" name="password_new" id="password_new" value="" required="">
+			<label for="password_new" class="form-label">Новый пароль</label>
+			<div class="invalid-feedback error"></div>
+		</div>
+		<div class="field_group">
+			<input type="password" class="form-control" name="password_new_confirm" id="password_new_confirm" value="" required="">
+			<label for="password_new_confirm" class="form-label">Подтвердить новый пароль</label>
+			<div class="invalid-feedback error"></div>
+		</div>
+		<input type="submit" class="btn btn-primary" name="change-password" id="change-password" value="Изменить пароль">
+		
+	</form>
+</div>
+
+	<div class="overlay"></div>
+	
+	<script async="" src="https://mc.yandex.ru/metrika/tag.js"></script><script src="/assets/js/libs.min-v2.0.js"></script>
+	<script src="/assets/js/scripts.min.js?v=1.0.6"></script>
+	<script src="/assets/js/custom-v2.1.js"></script>
+	
+	
+	
+	
+	
+	
+	
+	<script>
+        document.getElementById('my-image').addEventListener('click', function() {
+            const overlay = document.getElementById('fullscreen-overlay');
+            const fullscreenImg = document.getElementById('fullscreen-image');
+            
+            fullscreenImg.src = this.src;
+            overlay.style.display = 'block';
+        });
+        
+        document.getElementById('close-btn').addEventListener('click', function() {
+            document.getElementById('fullscreen-overlay').style.display = 'none';
+        });
+
+        // Обработчик кликов по увеличенному изображению
+        document.getElementById('fullscreen-image').addEventListener('click', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left; // координата X относительно изображения
+            const y = e.clientY - rect.top;  // координата Y относительно изображения
+            const width = rect.width;
+            const height = rect.height;
+            
+            // Определяем зоны и сообщения
+            let message = '';
+            
+            // Пример: проверяем координаты клика
+            if (x > width*0.2 && x < width*0.4 && y > height*0.3 && y < height*0.5) {
+                message = 'Верно заметили!';
+            } 
+            else if (x > width*0.6 && x < width*0.8 && y > height*0.7 && y < height*0.9) {
+                message = 'Отличное наблюдение!';
+            }
+            else {
+                message = 'Не туда!';
+            }
+            
+            // Создаем и показываем сообщение
+            showMessage(message, e.clientX, e.clientY);
+        });
+        
+        function showMessage(text, x, y) {
+            const msg = document.createElement('div');
+            msg.className = 'click-message';
+            msg.textContent = text;
+            msg.style.left = (x - 50) + 'px';
+            msg.style.top = (y - 20) + 'px';
+            
+            document.body.appendChild(msg);
+            
+            // Удаляем сообщение после анимации
+            setTimeout(() => {
+                msg.remove();
+            }, 3000);
+        }
+    </script>
+	<!-- Yandex.Metrika counter -->
+    <!-- <script type="text/javascript">
+       (function(m,e,t,r,i,k,a){ m[i]=m[i]||function(){ (m[i].a=m[i].a||[]).push(arguments) };
+       m[i].l=1*new Date();
+       for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+       k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a) })
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+    
+       ym(94804563, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/94804563" style="position:absolute; left:-9999px;" alt="" /></div></noscript> -->
+    <!-- /Yandex.Metrika counter -->
+
+
+</body></html>

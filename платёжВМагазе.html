@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Оформление заказа - ТехноДом</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #ff6600;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333;
+            --danger-red: #d32f2f;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background-color: var(--primary);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .checkout-container {
+            padding: 50px;
+            max-width: 800px;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .order-summary {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .order-item {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        
+        .order-item img {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            margin-right: 15px;
+            border-radius: 5px;
+        }
+        
+        .payment-form {
+            padding: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: bold;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .form-row .form-group {
+            flex: 1;
+        }
+        
+        .pay-button {
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+        
+        .pay-button:hover {
+            background-color: #e55c00;
+        }
+        
+        .secure-payment {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 14px;
+        }
+        
+        .secure-payment img {
+            margin-right: 10px;
+            height: 30px;
+        }
+        
+        .warning-note {
+            background-color: #ffebee;
+            border-left: 4px solid var(--danger-red);
+            padding: 20px;
+            margin-top: 30px;
+            grid-column: 1 / -1;
+        }
+        
+        .scam-indicators {
+            margin-top: 20px;
+        }
+        
+        .scam-indicator {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .scam-indicator::before {
+            content: "⚠️";
+            margin-right: 10px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-inner">
+            <div class="logo">ТехноДом<span>.рф</span></div>
+        </div>
+    </div>
+    
+    <div class="checkout-container">
+        <div class="order-summary">
+            <h2>Ваш заказ</h2>
+            
+            <div class="order-item">
+                <img src="img/холодильник.jpg" alt="Холодильник">
+                <div>
+                    <h3>Холодильник Samsung RB37A52N0SA/WT</h3>
+                    <p>1 × 19 990 ₽</p>
+                </div>
+            </div>
+            
+            <div style="border-top: 1px solid #ddd; margin: 20px 0; padding-top: 20px;">
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Сумма:</span>
+                    <span>19 990 ₽</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+                    <span>Доставка:</span>
+                    <span>Бесплатно</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-weight: bold; font-size: 18px;">
+                    <span>Итого:</span>
+                    <span>19 990 ₽</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="payment-form">
+            <h2>Оплата</h2>
+            
+            <div class="form-group">
+                <label for="card-number">Номер карты</label>
+                <input type="text" class="form-control" id="myInput" placeholder="0000 0000 0000 0000" disabled>
+            </div>
+            
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="card-expiry">Срок действия</label>
+                    <input type="text" class="form-control" id="myInput" placeholder="ММ/ГГ" disabled>
+                </div>
+                <div class="form-group">
+                    <label for="card-cvv">CVV/CVC</label>
+                    <input type="text" class="form-control" id="myInput" placeholder="000" disabled>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="card-name">Имя владельца карты</label>
+                <input type="text" class="form-control" id="myInput" placeholder="Как на карте" disabled>
+            </div>
+            
+            <button class="pay-button">ОПЛАТИТЬ СЕЙЧАС</button>
+            
+            <div class="secure-payment">
+                <img src="img/secure.svg" alt="Secure Payment">
+                <span>Безопасные платежи</span>
+            </div>
+        </div>
+        
+        <div class="warning-note">
+            <h3>Подозрительные элементы на странице оплаты:</h3>
+            <div class="scam-indicators">
+                <div class="scam-indicator">Нет перехода на защищенную страницу платежного шлюза (оплата прямо на сайте)</div>
+                <div class="scam-indicator">Отсутствует 3D-Secure (нет запроса SMS-кода)</div>
+                <div class="scam-indicator">Требуется ввод CVV-кода (настоящие магазины не запрашивают CVV)</div>
+                <div class="scam-indicator">Нет реальных логотипов систем защиты платежей (заглушка "Secure")</div>
+                <div class="scam-indicator">Отсутствует информация о том, куда идут платежные данные</div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const inputElement = document.getElementById('myInput');
+
+        inputElement.addEventListener('input', function(event) {
+        event.preventDefault(); // Предотвращает ввод символов
+        // Дополнительные действия по обработке, если необходимо
+        });
+        
+        document.querySelector('.pay-button').addEventListener('click', function(e) {
+            e.preventDefault();
+            alert('Это учебный пример! Настоящая страница оплаты должна:\n\n1. Перенаправлять на защищенный платежный шлюз\n2. Запрашивать SMS-код (3D-Secure)\n3. Не требовать CVV-код\n4. Иметь реальные логотипы защиты платежей');
+        });
+    </script>
+</body>
+</html>
